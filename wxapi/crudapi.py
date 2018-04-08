@@ -19,14 +19,17 @@ def snippet_list(request,model,formatting):
         serializerData =serializer.data
         for i in serializerData:  #塞数据
             i['Merchant'] = Merchantarry[serializerData.index(i)][0]['name']
+            i['MerchantId'] = Merchantarry[serializerData.index(i)][0]['id']
         return serializer.data
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = formatting(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+
+
+    # elif request.method == 'POST':
+    #     data = JSONParser().parse(request)
+    #     serializer = formatting(data=data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return JsonResponse(serializer.data, status=201)
+    #     return JsonResponse(serializer.errors, status=400)
 
 
 @csrf_exempt

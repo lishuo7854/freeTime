@@ -22,6 +22,13 @@ def homelist(request):
     model = request.GET['table']
     formatting = request.GET['tableClass']
     data = snippet_list(request, model, formatting)
+    return JsonResponse(data, safe=False)
 
+def jobdetails(request):
+    model = request.GET['table']
+    print(model)
+    print('zzzzz')
+    formatting = request.GET['tableClass']
+    data = snippet_list(request, model, formatting)
     return JsonResponse(data, safe=False)
 

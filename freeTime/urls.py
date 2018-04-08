@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from wxapi import views as data
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('rdata/',data.rdata,name = 'rdata'),
-    path('homelist/',data.homelist,name = 'homelist')
+    path('rdata/', data.rdata, name='rdata'),
+    path('homelist/', data.homelist, name='homelist'),
+    path('jobdetails/', data.jobdetails, name='jobdetails')
+
+
 ]
