@@ -26,8 +26,9 @@ def snippet_list(request,model,formatting):
 def jobdetails_data(request,jobid,MerchantId):
     job_data = Job.objects.filter(id = jobid)
     job_data_json = JobSerializer(job_data, many=True)
-    merchant_data = job_data[0].name
-    print(merchant_data)
+    merchant_data = Merchants.objects.filter(user_id_id = job_data[0].user_id.id)
+    merchant_data_json = MerchantsSerializer(merchant_data, many=True)
+    job_data_json.data[0]['merchant_data'] = merchant_data_json.data[0]
     return job_data_json.data
 
 

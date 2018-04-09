@@ -25,9 +25,8 @@ def homelist(request):
     return JsonResponse(data, safe=False)
 
 def jobdetails(request):
-
-    jobid = request.GET['jobid']
-    MerchantId = request.GET['MerchantId']
-    data = jobdetails_data(request,jobid,MerchantId)
+    job_id = request.GET['jobid']
+    merchant_id = request.GET['MerchantId']
+    data = jobdetails_data(request,job_id,merchant_id)
     return JsonResponse(data, safe=False)
 
