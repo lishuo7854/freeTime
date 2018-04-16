@@ -25,10 +25,9 @@ def homelist(request):
     return JsonResponse(data, safe=False)
 
 def jobdetails(request):
-    model = request.GET['table']
-    print(model)
-    print('zzzzz')
-    formatting = request.GET['tableClass']
-    data = snippet_list(request, model, formatting)
+
+    jobid = request.GET['jobid']
+    MerchantId = request.GET['MerchantId']
+    data = jobdetails_data(request,jobid,MerchantId)
     return JsonResponse(data, safe=False)
 

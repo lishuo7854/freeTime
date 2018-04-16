@@ -11,15 +11,13 @@ class UserInfoSerializer(serializers.ModelSerializer):
 class MerchantsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Merchants
-        fields = (
-        'id', 'name', 'industry', 'tel', 'size', 'address', 'openid', 'email', 'Introduction', 'headerName', 'image',
+        fields = ('id', 'name', 'industry', 'tel', 'size', 'address', 'openid', 'email', 'Introduction', 'headerName', 'image',
         'user_id')
 
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
-        fields = (
-        'id', 'tel','name', 'user_id', 'address', 'Introduction', 'image', 'peoplenum', 'paymethod', 'jobdate', 'jobtime',
+        fields = ('id', 'tel','name', 'user_id', 'address', 'Introduction', 'image', 'peoplenum', 'paymethod', 'jobdate', 'jobtime',
         'overtime', 'commission', 'treatment', 'treatmentType', 'jobtype', 'communicate', 'communicatenum')
 
 

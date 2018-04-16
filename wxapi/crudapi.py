@@ -22,14 +22,13 @@ def snippet_list(request,model,formatting):
             i['MerchantId'] = Merchantarry[serializerData.index(i)][0]['id']
         return serializer.data
 
-
-    # elif request.method == 'POST':
-    #     data = JSONParser().parse(request)
-    #     serializer = formatting(data=data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return JsonResponse(serializer.data, status=201)
-    #     return JsonResponse(serializer.errors, status=400)
+#job详情页面数据
+def jobdetails_data(request,jobid,MerchantId):
+    job_data = Job.objects.filter(id = jobid)
+    job_data_json = JobSerializer(job_data, many=True)
+    merchant_data = job_data[0].name
+    print(merchant_data)
+    return job_data_json.data
 
 
 @csrf_exempt
@@ -57,3 +56,21 @@ def snippet_detail(request,model,formatting, pk):
         print('-----------------')
         snippet.delete()
         return HttpResponse(status=204)
+
+
+
+
+
+
+
+
+
+
+
+    # elif request.method == 'POST':
+    #     data = JSONParser().parse(request)
+    #     serializer = formatting(data=data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return JsonResponse(serializer.data, status=201)
+    #     return JsonResponse(serializer.errors, status=400)
